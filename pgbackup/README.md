@@ -16,18 +16,24 @@ El fichero de configuración pudiera copiarse en el propio directorio de configu
 
 Funcionamiento básico:
 
+* Listar bases de datos:
+
+```
+    pgbackup -l
+```
+
 * Crear respaldo:
 
 ```
-    ./pgbackup.py -d pgbackup.conf
+    pgbackup -d
 ```
 
 * Limpiar histórico de respaldos:
 
 ```
-    ./pgbackup.py -c pgbackup.conf
+    pgbackup.py -c
 ```
 
----
-### Autor
+Autor
+-----
 Félix Urbina
