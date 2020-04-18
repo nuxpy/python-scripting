@@ -31,7 +31,7 @@ Funcionamiento básico:
 * Limpiar histórico de respaldos:
 
 ```
-    pgbackup.py -c
+    pgbackup -c
 ```
 
 Autor
