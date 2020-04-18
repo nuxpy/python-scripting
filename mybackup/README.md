@@ -18,12 +18,15 @@ Funcionamiento básico:
 
 * Crear respaldo:
 
+```
     ./mybackup.py -d mybackup.conf
+```
 
 * Limpiar histórico de respaldos:
- 
+
+```
     ./mybackup.py -c mybackup.conf
+```
 
 ### Autor
----
 Félix Urbina
