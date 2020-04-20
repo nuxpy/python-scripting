@@ -29,9 +29,7 @@ Posteriormente, se genera un fichero llamado: **titulo_lista.xspf**
 
 Tener en cuenta que la lista se debe generar si se tiene un directorio especial de archivos musicales y el fichero de lista musical quedar en el fichero raíz de donde están guardados todos los directorios de música.
 
-**Observación**
-
-Si se mueve el fichero o directorio original de los ficheros musicales, entonces el fichero **.xspf** no tendría la relación o vinculación acorde a la ruta o _path_ original con el que se creó, pero el fichero **.xspf** sí se puede mover de lugar y tener en otro directorio diferente.
+**Observación**: si se mueve el fichero o directorio original de los ficheros musicales, entonces el fichero **.xspf** no tendría la relación o vinculación acorde a la ruta o _path_ original con el que se creó, pero el fichero **.xspf** sí se puede mover de lugar y tener en otro directorio diferente.
 
 Autor
 -----
