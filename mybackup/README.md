@@ -28,6 +28,6 @@ Funcionamiento básico:
     ./mybackup.py -c mybackup.conf
 ```
 
----
-### Autor
+Autor
+-----
 Félix Urbina
