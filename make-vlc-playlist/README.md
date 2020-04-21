@@ -2,7 +2,7 @@
 
 Este _script_ permite generar fichero de una lista o _playlist_ para reproducir en el reproductor de medios **VLC**.
 
-Escoge principal ficheros de tipo: **.mp3**, **.ogg** y **.wma**.
+Escoge principalmente ficheros de tipo: **.mp3**, **.ogg** y **.wma**.
 
 <a href="https://wiki.nuxpy.com/index.php/Generar_lista_musical">Referencia principal</a>
 
