@@ -34,6 +34,5 @@ Funcionamiento básico:
     pgbackup -c
 ```
 
-Autor
------
+---
 Félix Urbina
