@@ -11,7 +11,7 @@ import operator
 import optparse
 
 def profile(profile='', color={}):
-    filelist_r = open(simplelist, 'r')
+    filelist_r = open(profile, 'r')
     filelist_w = open(r'tab_%s' % profile, 'w')
     header = '{|'
     footer = '|}'
@@ -57,7 +57,7 @@ def profile(profile='', color={}):
     return True
 
 def trademark(trademark='', color={}):
-    filelist_r = open(simplelist, 'r')
+    filelist_r = open(trademark, 'r')
     filelist_w = open(r'tab_%s' % trademark, 'w')
     header = '{|'
     footer = '|}'
@@ -69,24 +69,25 @@ def trademark(trademark='', color={}):
     name = ''
     desc = ''
     col = 0
-    line = filelist_r.readline()
-    content += header
-    while line:
-        l = line.split(';;')
-        mark = {
-            'icon': l[0].strip(),
-            'web': l[1].strip(),
-            'name': l[2].strip(),
-            'desc': l[3].strip()
-        }
-        marks.append(mark)
+    if filelist_r:
         line = filelist_r.readline()
+        content += header
+        while line:
+            l = line.split(';;')
+            mark = {
+                'icon': l[0].strip(),
+                'web': l[1].strip(),
+                'name': l[2].strip(),
+                'desc': l[3].strip()
+            }
+            marks.append(mark)
+            line = filelist_r.readline()
         filelist_r.close()
         lmarks = len(marks)
         l = 1
         for p in sorted(marks, key=operator.itemgetter("name")):
             col += 1
-            icon += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[[File:%s]]' % p['icon']
+            icon += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[[Archivo:%s]]' % p['icon']
             web += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[%s %s]' % (p['web'] or '', p['name'] or '')
             desc += '\n|style="padding: 2px 5px 15px 5px;width:200px;vertical-align:top;margin-right:20px;"|%s' % p['desc'] or ''
             if col == 5 or l == lmarks:
