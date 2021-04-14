@@ -110,6 +110,61 @@ def trademark(trademark='', color={}):
         print ("Debe ingresar un archivo con datos para generar tabla Mediawiki")
     return True
 
+def category(trademark='', color={}):
+    filelist_r = open(trademark, 'r')
+    filelist_w = open(r'tab_%s' % trademark, 'w')
+    header = '{|'
+    footer = '|}'
+    content = ''
+    mark = {}
+    marks = []
+    icon = ''
+    web = ''
+    name = ''
+    desc = ''
+    col = 0
+    if filelist_r:
+        line = filelist_r.readline()
+        content += header
+        while line:
+            l = line.split(';;')
+            mark = {
+                'icon': l[0].strip(),
+                'web': l[1].strip(),
+                'name': l[2].strip(),
+                'desc': l[3].strip()
+            }
+            marks.append(mark)
+            line = filelist_r.readline()
+        filelist_r.close()
+        lmarks = len(marks)
+        l = 1
+        for p in sorted(marks, key=operator.itemgetter("name")):
+            col += 1
+            #icon += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[[Archivo:%s]]' % p['icon']
+            web += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[[:Category:%s|%s]]' % (p['web'] or '', p['name'] or '')
+            desc += '\n|style="padding: 2px 5px 15px 5px;width:200px;vertical-align:top;margin-right:20px;"|%s' % p['desc'] or ''
+            if col == 5 or l == lmarks:
+                icon += '\n|-'
+                web += '\n|-'
+                desc += '\n|-'
+                content += icon
+                content += web
+                content += desc
+                icon = ''
+                name = ''
+                web = ''
+                desc = ''
+                col = 0
+            l += 1
+        content += '\n%s' % footer
+        filelist_w.write(content)
+        filelist_w.close()
+    else:
+        print ("Debe ingresar un archivo con datos para generar tabla Mediawiki de categorías")
+    return True
+
+
 def tablist(simplelist='', color={}):
     filelist_r = open(simplelist, 'r')
     filelist_w = open(r'tab_%s' % simplelist, 'w')
@@ -166,6 +221,7 @@ def main():
     app.add_option('-l', '--list', default=False, dest='list', type="string", nargs=1, help="Make a simple list from a source file.")
     app.add_option('-p', '--profile', default=False, dest='profile', type="string", nargs=1, help="Make a simple profile list from a source file.")
     app.add_option('-t', '--trademark', default=False, dest='trademark', type="string", nargs=1, help="Make a simple trademark list from a source file.")
+    app.add_option('-c', '--categ', default=False, dest='categ', type="string", nargs=1, help="Make a simple category list from a source file.")
     options, args = app.parse_args()
     if options.list:
         tablist(options.list, color)
@@ -173,11 +229,14 @@ def main():
         profile(options.profile, color)
     elif options.trademark:
         trademark(options.trademark, color)
+    elif options.categ:
+        category(options.categ, color)
     else:
         print ("Debe seleccionar una opción:\n")
         print ("\twikitablecreate -l fichero_tabla_de_lista\n")
         print ("\twikitablecreate -p fichero_tabla_de_perfiles\n")
         print ("\twikitablecreate -t fichero_tabla_de_marcas_comerciales\n")
+        print ("\twikitablecreate -c fichero_tabla_de_categorias\n")
     return True
 
 if __name__ == '__main__':
