@@ -141,7 +141,8 @@ def category(trademark='', color={}):
         l = 1
         for p in sorted(marks, key=operator.itemgetter("name")):
             col += 1
-            #icon += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[[Archivo:%s]]' % p['icon']
+            if p['icon']:
+                icon += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[[Archivo:%s]]' % p['icon']
             web += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[[:Category:%s|%s]]' % (p['web'] or '', p['name'] or '')
             desc += '\n|style="padding: 2px 5px 15px 5px;width:200px;vertical-align:top;margin-right:20px;"|%s' % p['desc'] or ''
             if col == 4 or l == lmarks:
