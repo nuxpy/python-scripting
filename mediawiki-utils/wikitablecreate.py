@@ -40,7 +40,7 @@ def profile(profile='', color={}):
             col += 1
             name += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:left;"|[[Archivo:icon_profile_24px.png]] [%s %s]' % (p['web'] or '', p['name'] or '')
             desc += '\n|style="padding: 2px 5px 15px 5px;width:200px;vertical-align:top;margin-right:20px;"|%s' % p['desc'] or ''
-            if col == 5 or l == lprofiles:
+            if col == 4 or l == lprofiles:
                 name += '\n|-'
                 desc += '\n|-'
                 content += name
@@ -90,7 +90,7 @@ def trademark(trademark='', color={}):
             icon += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[[Archivo:%s]]' % p['icon']
             web += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[%s %s]' % (p['web'] or '', p['name'] or '')
             desc += '\n|style="padding: 2px 5px 15px 5px;width:200px;vertical-align:top;margin-right:20px;"|%s' % p['desc'] or ''
-            if col == 5 or l == lmarks:
+            if col == 4 or l == lmarks:
                 icon += '\n|-'
                 web += '\n|-'
                 desc += '\n|-'
@@ -144,7 +144,7 @@ def category(trademark='', color={}):
             #icon += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[[Archivo:%s]]' % p['icon']
             web += '\n|style="padding: 2px 5px 5px 5px;width:100px;text-align:center;"|[[:Category:%s|%s]]' % (p['web'] or '', p['name'] or '')
             desc += '\n|style="padding: 2px 5px 15px 5px;width:200px;vertical-align:top;margin-right:20px;"|%s' % p['desc'] or ''
-            if col == 5 or l == lmarks:
+            if col == 4 or l == lmarks:
                 icon += '\n|-'
                 web += '\n|-'
                 desc += '\n|-'
