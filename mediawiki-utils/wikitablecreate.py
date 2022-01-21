@@ -1,4 +1,4 @@
-#!/usr/bin/python3.7
+#!/usr/bin/python3.9
 # -*- coding: utf-8 -*-
 ''' Este script genera tablas para Mediawiki según la tipología:
     * Tabla de lista simple.
